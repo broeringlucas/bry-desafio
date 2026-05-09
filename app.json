@@ -1,0 +1,8 @@
+{
+  "android": {
+    "package": "com.anonymous.brydesafio"
+  },
+  "ios": {
+    "bundleIdentifier": "com.anonymous.brydesafio"
+  }
+}
