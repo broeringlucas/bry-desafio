@@ -1,8 +1,8 @@
 {
   "android": {
-    "package": "com.anonymous.brydesafio"
+    "package": "com.lucasbroering.brydesafio"
   },
   "ios": {
-    "bundleIdentifier": "com.anonymous.brydesafio"
+    "bundleIdentifier": "com.lucasbroering.brydesafio"
   }
 }
