@@ -1,8 +1,30 @@
 {
-  "android": {
-    "package": "com.lucasbroering.brydesafio"
-  },
-  "ios": {
-    "bundleIdentifier": "com.lucasbroering.brydesafio"
+  "expo": {
+    "name": "BryDesafio",
+    "slug": "brydesafio",
+    "scheme": "brydesafio",
+    "android": {
+      "package": "com.lucasbroering.brydesafio",
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "ios": {
+      "bundleIdentifier": "com.lucasbroering.brydesafio",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Permitir que o Weather use sua localização para mostrar o clima da sua cidade.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Permitir que o Weather use sua localização para mostrar o clima da sua cidade."
+      }
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Permitir que o Weather use sua localização.",
+          "locationAlwaysAndWhenInUsePermission": "Permitir que o Weather use sua localização para mostrar o clima da sua cidade."
+        }
+      ]
+    ]
   }
 }

@@ -1,0 +1,1 @@
+export const DEFAULT_CITY = 'São Paulo';
