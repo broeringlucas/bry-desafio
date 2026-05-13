@@ -132,25 +132,17 @@ Uma dificuldade encontrada foi a implementação do componente de autocomplete d
 
 Foram tratados os principais estados de erro retornados pela API, porém pode ter ficado alguma exceção de fora.
 
-## Screenshots 
+## Screenshots/Vídeos
 <details>
-<summary>Screenshot 1</summary>
-    
-</details>
-
-<details>
-<summary>Screenshot 2</summary>
-  
+<summary>Screenshot</summary>
+<img width="588" height="1280" alt="home" src="https://github.com/user-attachments/assets/01bb1a2b-d6df-4e3a-a686-63da0a54d31d" />
 
 </details>
 
 <details>
-<summary>Screenshot 3</summary>
-  
+Na captura de tela do iPhone não mostra a dialog de pedir permissão para usar a loc.
+<summary>Vídeo</summary>
 
-</details>
-
-<details>
-<summary>Screenshot 4</summary>
+https://github.com/user-attachments/assets/e813aaac-2012-4d7b-b61a-bef9c18f0769
 
 </details>
