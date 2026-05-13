@@ -2,7 +2,7 @@
 
 Aplicativo de previsão do tempo desenvolvido em React Native (Expo) que permite buscar cidades, visualizar previsões de 7 dias e funciona offline com cache local.
 
-## Project Structure 
+## Estrutura do Projeto
 
 ```
 bry-desafio/
@@ -72,27 +72,27 @@ bry-desafio/
 - **Gráficos Interativos:** Visualize a variação de temperatura ao longo do dia
 - **Tratamento de Erros:** Exceptions customizadas (Network, Unauthorized, Forbidden, BadRequest, Api)
 
-## Technologies Used
+## Tecnologias usadas
 
 **Frontend:** React Native · Expo 54 · TypeScript  
 
-**State Management:** TanStack Query (React Query)  
+**State Management:** TanStack Query (React Query) -  Gerenciamento de estado assíncrono, cache automático e sincronização de dados
 
 **Navigation:** Expo Router (file-based routing com rotas dinâmicas)  
 
-**HTTP Client:** Axios  
+**HTTP Client:** Axios  - Cliente HTTP para comunicação com a WeatherAPI
 
-**Storage:** @react-native-async-storage/async-storage  
+**Storage:** @react-native-async-storage/async-storage - Armazenamento local para cache offline dos dados de previsão
 
 **Charts:** react-native-gifted-charts  
 
 **Icons:** @expo/vector-icons  
 
-**Location:** expo-location  
+**Location:** expo-location - Captura da localização do usuário para previsão automática
 
 **Testing:** Jest · @testing-library/react-native  
 
-## How to run 
+## Como rodar
 
 1. Clone o repositório:: git clone [https://github.com/broeringlucas/easy-saving.git](https://github.com/broeringlucas/easy-saving)
 2. Navigate to the directory: cd bry-desafio
@@ -110,9 +110,23 @@ bry-desafio/
 
 Também rodei usando o Radon IDE. 
 
-## How to run tests 
+## Como rodar os testes
 
 1. Rode npm test no root do projeto.
+
+## Observação
+
+O aplicativo foi testado em iOS físico, emulador iOS e emulador Android. A funcionalidade de localização utilizando Expo Location apresentou comportamento inconsistente em emuladores, mas em dispositivos físicos o funcionamento ocorreu corretamente.
+
+Foi utilizado TanStack Query (React Query) para gerenciamento de cache, sincronização de estado assíncrono, controle de loading/refetch e persistência dos dados da previsão do tempo. A biblioteca ajudou principalmente no cache de requisições, atualização automática, estados de loading/error e pull-to-refresh.
+
+Sobre os dados offline, fiquei em dúvida. Pesquisei sobre react-query-persister, mas optei por usar o AsyncStorage e fazer na mão, por já conhecer a tecnologia.
+
+O projeto foi organizado utilizando uma estrutura baseada em módulos/features dentro da pasta src, buscando separar responsabilidades e facilitar manutenção. Por falta de tempo, acho que essa separação poderia ter sido melhor: common para componentes e utilidades reutilizáveis entre módulos, home para regras de negócio relacionadas ao clima e details para a tela de detalhes.
+
+Uma dificuldade encontrada foi a implementação do componente de autocomplete de cidades (CitySearch.tsx). Como a tela já possuía um ScrollView, ocorreram conflitos de scroll com o dropdown do autocomplete.
+
+Foram tratados os principais estados de erro retornados pela API, porém podd ter ficado alguma exceção de fora.
 
 ## Screenshots 
 <details>
