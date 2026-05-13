@@ -94,7 +94,7 @@ bry-desafio/
 
 ## Como rodar
 
-1. Clone o repositório:: git clone [https://github.com/broeringlucas/easy-saving.git](https://github.com/broeringlucas/easy-saving)
+1. Clone o repositório:: git clone [git@github.com:broeringlucas/bry-desafio.git](https://github.com/broeringlucas/bry-desafio)
 2. Navigate to the directory: cd bry-desafio
 3. Instale as dependências: npm install
 4. Crie um arquivo .env na raiz do projeto.
