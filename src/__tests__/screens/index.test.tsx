@@ -11,8 +11,8 @@ jest.mock('../../../src/common/hooks/useLocation', () => ({
   useLocation: jest.fn()
 }));
 
-import { useForecast } from '../../../src/home/hooks/useForecast';
-import { useLocation } from '../../../src/common/hooks/useLocation';
+import { useForecast } from '../../home/hooks/useForecast';
+import { useLocation } from '../../common/hooks/useLocation';
 
 const mockUseForecast = useForecast as jest.Mock;
 const mockUseLocation = useLocation as jest.Mock;
