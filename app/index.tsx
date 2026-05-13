@@ -3,13 +3,14 @@ import {
   Text,
   View,
   RefreshControl,
+  Image,
 } from 'react-native';
 import { useEffect, useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import ForecastCard from '../src/home/components/ForecastCard';
 import CitySearch from '../src/home/components/CitySearch'
 import LoadingIndicator from '../src/common/components/LoadingIndicator';
-import ErrorState  from '../src/common/components/ErrorState';
+import ErrorState from '../src/common/components/ErrorState';
 import EmptyState from '../src/common/components/EmptyState';
 import { useForecast } from '../src/home/hooks/useForecast';
 import { City } from '../src/home/models/city.model';
@@ -31,14 +32,15 @@ export default function HomeScreen() {
     return () => clearInterval(interval);
   }, []);
 
+
   function handleSelectCity(city: City) {
-    let query = city.name;
-    if (city.region && city.region !== city.name) {
-      query = `${city.name}, ${city.region}`;
-    } else if (city.country && !city.region) {
-      query = `${city.name}, ${city.country}`;
+    if (city.country) {
+      setSelectedCity(`${city.name}, ${city.country}`);
+    } else if (city.region && city.region !== city.name) {
+      setSelectedCity(`${city.name}, ${city.region}`);
+    } else {
+      setSelectedCity(city.name);
     }
-    setSelectedCity(query);
   }
 
   if (locationLoading) {
@@ -80,11 +82,33 @@ export default function HomeScreen() {
           <>
             <CitySearch onSelect={handleSelectCity} />
             <View style={{ alignItems: 'center', marginTop: 20, marginBottom: 40 }}>
-              <Text style={{ color: '#FFF', fontSize: 40, fontWeight: '300' }}>{data?.city}</Text>
-              <Text style={{ color: '#FFF', fontSize: 96, fontWeight: '200', marginTop: 8 }}>
-                {Math.round(data?.current.temperature ?? 0)}°
+              <Text style={{ color: '#FFF', fontSize: 40, fontWeight: '300' }}>
+                {data?.city}
               </Text>
-              <Text style={{ color: 'rgba(255,255,255,0.8)', fontSize: 24 }}>{data?.current.condition}</Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginTop: 8,
+                }}
+              >
+                <Text style={{ color: '#FFF', fontSize: 96, fontWeight: '200' }}>
+                  {Math.round(data?.current.temperature ?? 0)}°
+                </Text>
+                <Image
+                  source={{
+                    uri: `https:${data?.current.iconUrl}`,
+                  }}
+                  style={{
+                    width: 100,
+                    height: 100,
+                    marginLeft: 5,
+                  }}/>
+              </View>
+              <Text style={{ color: 'rgba(255,255,255,0.8)', fontSize: 24 }}>
+                {data?.current.condition}
+              </Text>
               <Text style={{ color: 'rgba(255,255,255,0.6)', fontSize: 14, marginTop: 8 }}>
                 {formatUpdated(dataUpdatedAt)}
               </Text>

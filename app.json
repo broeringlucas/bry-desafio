@@ -13,16 +13,16 @@
     "ios": {
       "bundleIdentifier": "com.lucasbroering.brydesafio",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "Permitir que o Weather use sua localização para mostrar o clima da sua cidade.",
-        "NSLocationAlwaysAndWhenInUseUsageDescription": "Permitir que o Weather use sua localização para mostrar o clima da sua cidade."
+        "NSLocationWhenInUseUsageDescription": "Permitir que o WeatherApp use sua localização para mostrar o clima da sua cidade.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Permitir que o WeatherApp use sua localização para mostrar o clima da sua cidade."
       }
     },
     "plugins": [
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "Permitir que o Weather use sua localização.",
-          "locationAlwaysAndWhenInUsePermission": "Permitir que o Weather use sua localização para mostrar o clima da sua cidade."
+          "locationWhenInUsePermission": "Permitir que o WeatherApp use sua localização.",
+          "locationAlwaysAndWhenInUsePermission": "Permitir que o WeatherApp use sua localização para mostrar o clima da sua cidade."
         }
       ]
     ]

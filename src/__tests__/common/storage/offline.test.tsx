@@ -2,7 +2,6 @@ import { render, waitFor } from '@testing-library/react-native';
 import HomeScreen from '../../../../app/index';
 import { mockForecastData } from '../../utils/mocks/weather.mock';
 
-// Mock do AsyncStorage ANTES de importar
 jest.mock('@react-native-async-storage/async-storage', () => ({
   getItem: jest.fn(),
   setItem: jest.fn(),
@@ -10,7 +9,6 @@ jest.mock('@react-native-async-storage/async-storage', () => ({
   clear: jest.fn(),
 }));
 
-// Mock do NetInfo usando virtual
 jest.mock('@react-native-community/netinfo', () => ({
   useNetInfo: jest.fn().mockReturnValue({ 
     isConnected: false, 
@@ -18,7 +16,6 @@ jest.mock('@react-native-community/netinfo', () => ({
   })
 }), { virtual: true });
 
-// Mock dos hooks
 jest.mock('../../../../src/home/hooks/useForecast', () => ({
   useForecast: jest.fn()
 }));

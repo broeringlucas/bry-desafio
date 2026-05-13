@@ -1,6 +1,6 @@
 # Bry Desafio
 
-Aplicativo de previsão do tempo desenvolvido em React Native (Expo) que permite buscar cidades, visualizar previsões de 7 dias e funciona offline com cache local.
+WeatherApp é um aplicativo de previsão do tempo desenvolvido em React Native (Expo) que permite buscar cidades, visualizar previsões de 7 dias e funciona offline com cache local.
 
 ## Estrutura do Projeto
 
@@ -107,8 +107,12 @@ bry-desafio/
     
     </details>  
 5. Inicie o app:  npx expo start 
+6. Baixei o expo go no meu celular e escaniei o QRCODE
 
-Também rodei usando o Radon IDE. 
+Outra forma que rodei: 
+1. Fazer prebuild com: npx expo prebuild
+2. Abri um emulador com o Radon IDE (Baixei extensão no vs code).
+3. Inicie o app: npx expo start, escolha um emulador tecla a (android) e b (ios).
 
 ## Como rodar os testes
 
@@ -120,13 +124,13 @@ O aplicativo foi testado em iOS físico, emulador iOS e emulador Android. A func
 
 Foi utilizado TanStack Query (React Query) para gerenciamento de cache, sincronização de estado assíncrono, controle de loading/refetch e persistência dos dados da previsão do tempo. A biblioteca ajudou principalmente no cache de requisições, atualização automática, estados de loading/error e pull-to-refresh.
 
-Sobre os dados offline, fiquei em dúvida. Pesquisei sobre react-query-persister, mas optei por usar o AsyncStorage e fazer na mão, por já conhecer a tecnologia.
+Sobre os dados offline, fiquei em dúvida. Eu fiz das duas formas, os dados persistem por 10 minutos usando o react-query, para cada cidade. E também usei o async-storage para persistir dados apenas da última cidade no storage. Ele vai escrevendo por cima a cada consulta.
 
 O projeto foi organizado utilizando uma estrutura baseada em módulos/features dentro da pasta src, buscando separar responsabilidades e facilitar manutenção. Por falta de tempo, acho que essa separação poderia ter sido melhor: common para componentes e utilidades reutilizáveis entre módulos, home para regras de negócio relacionadas ao clima e details para a tela de detalhes.
 
 Uma dificuldade encontrada foi a implementação do componente de autocomplete de cidades (CitySearch.tsx). Como a tela já possuía um ScrollView, ocorreram conflitos de scroll com o dropdown do autocomplete.
 
-Foram tratados os principais estados de erro retornados pela API, porém podd ter ficado alguma exceção de fora.
+Foram tratados os principais estados de erro retornados pela API, porém pode ter ficado alguma exceção de fora.
 
 ## Screenshots 
 <details>

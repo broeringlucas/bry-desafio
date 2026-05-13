@@ -1,0 +1,1 @@
+export const ASYNC_FORECAST_KEY = 'async_forecast';

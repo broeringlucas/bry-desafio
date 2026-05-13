@@ -2,7 +2,6 @@ import { render, waitFor } from '@testing-library/react-native';
 import HomeScreen from '../../../app/index';
 import { mockForecastData } from '../utils/mocks/weather.mock';
 
-// Mock dos hooks
 jest.mock('../../../src/home/hooks/useForecast', () => ({
   useForecast: jest.fn()
 }));

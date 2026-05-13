@@ -20,10 +20,11 @@ export default function CitySearch({ onSelect }: Props) {
   const inputRef = useRef<TextInput>(null);
 
   const handleSelect = (city: City) => {
-    console.log('Cidade selecionada:', city);
-    setQuery(city.name);
+    setQuery('');
     setFocused(false);
+
     Keyboard.dismiss();
+
     onSelect(city);
   };
 

@@ -1,8 +1,3 @@
-export const mockApiCityResponse = [
-  { id: 1, name: 'São Paulo', region: 'SP', country: 'Brazil' },
-  { id: 2, name: 'Santos', region: 'SP', country: 'Brazil' }
-];
-
 export const mockCities = [
   {
     id: 1,

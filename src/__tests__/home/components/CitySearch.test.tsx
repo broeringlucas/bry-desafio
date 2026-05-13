@@ -1,9 +1,8 @@
 import React from 'react';
 import { render, fireEvent, waitFor } from '@testing-library/react-native';
 import CitySearch from '../../../home/components/CitySearch';
-import { mockApiCityResponse } from '../../utils/mocks/city.mock';
+import { mockCities } from '../../utils/mocks/city.mock';
 
-// Mock hook useCitySearch
 jest.mock('../../../home/hooks/useCitySearch', () => ({
   useCitySearch: jest.fn()
 }));
@@ -23,7 +22,7 @@ describe('CitySearch', () => {
     mockUseCitySearch.mockReturnValue({
       query: 'Sao',
       setQuery: jest.fn(),
-      cities: mockApiCityResponse,
+      cities: mockCities,
       loading: false,
       error: null,
     });
@@ -82,7 +81,6 @@ describe('CitySearch', () => {
     fireEvent(input, 'focus');
     fireEvent.changeText(input, 'XYZ');
 
-    // O dropdown não deve aparecer pois não há cidades
     expect(queryByText('Buscando cidades...')).toBeNull();
     expect(queryByText('Nenhuma cidade encontrada')).toBeNull();
   });
@@ -114,7 +112,7 @@ describe('CitySearch', () => {
     mockUseCitySearch.mockReturnValue({
       query: 'Sao',
       setQuery: mockSetQuery,
-      cities: mockApiCityResponse,
+      cities: mockCities,
       loading: false,
       error: null,
     });
@@ -133,15 +131,15 @@ describe('CitySearch', () => {
 
     fireEvent.press(getByText('São Paulo'));
 
-    expect(mockOnSelect).toHaveBeenCalledWith(mockApiCityResponse[0]);
-    expect(mockSetQuery).toHaveBeenCalledWith('São Paulo');
+    expect(mockOnSelect).toHaveBeenCalledWith(mockCities[0]);
+    expect(mockSetQuery).toHaveBeenCalledWith('');
   });
 
   it('não deve mostrar dropdown quando não está focado', async () => {
     mockUseCitySearch.mockReturnValue({
       query: 'Sao',
       setQuery: jest.fn(),
-      cities: mockApiCityResponse,
+      cities: mockCities,
       loading: false,
       error: null,
     });
@@ -153,7 +151,6 @@ describe('CitySearch', () => {
     const input = getByPlaceholderText('Pesquisar cidade...');
     fireEvent.changeText(input, 'Sao');
     
-    // Sem focus, o dropdown não deve aparecer
     expect(queryByText('São Paulo')).toBeNull();
   });
 
@@ -161,7 +158,7 @@ describe('CitySearch', () => {
     mockUseCitySearch.mockReturnValue({
       query: 'S',
       setQuery: jest.fn(),
-      cities: mockApiCityResponse,
+      cities: mockCities,
       loading: false,
       error: null,
     });

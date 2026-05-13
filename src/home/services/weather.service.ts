@@ -5,8 +5,7 @@ import { getStorageItem, setStorageItem } from '../../common/core/storage/storag
 import { mapWeatherForecast } from '../mappers/weather.mapper';
 import { WeatherForecastState } from '../states/weather.state';
 import { WeatherForecastResponse } from '../types/weather-api.types';
-
-const FORECAST_CACHE_KEY = '@forecast_cache';
+import { ASYNC_FORECAST_KEY } from '../../common/core/constants/local_storage_keys';
 
 export async function getForecast(query: string): Promise<WeatherForecastState> {
   try {
@@ -27,13 +26,11 @@ export async function getForecast(query: string): Promise<WeatherForecastState> 
       isOffline: false,
     };
 
-    await setStorageItem(FORECAST_CACHE_KEY, state);
+    await setStorageItem(ASYNC_FORECAST_KEY, state);
 
     return state;
   } catch (error: any) {
-    const cached = await getStorageItem<WeatherForecastState>(FORECAST_CACHE_KEY);
-    console.log(cached);
-    
+    const cached = await getStorageItem<WeatherForecastState>(ASYNC_FORECAST_KEY);
     if (cached) {
       return {
         ...cached,

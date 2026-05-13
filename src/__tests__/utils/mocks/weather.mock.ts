@@ -35,26 +35,3 @@ export const mockForecastData = {
   updatedAt: Date.now(),
   isOffline: false
 };
-
-export const mockApiForecastResponse = {
-  location: { name: 'São Paulo', country: 'Brazil', localtime: '2024-01-15 12:00' },
-  current: { temp_c: 22, humidity: 65, condition: { text: 'Partly cloudy', icon: '//cdn...' } },
-  forecast: {
-    forecastday: [
-      {
-        date: '2024-01-15',
-        day: {
-          avgtemp_c: 22,
-          avghumidity: 65,
-          maxwind_kph: 15.5,
-          condition: { text: 'Sunny', icon: '//cdn...' }
-        },
-        hour: [
-          { time: '09:00', temp_c: 20 },
-          { time: '12:00', temp_c: 24 }
-        ],
-        astro: { sunrise: '06:30 AM', sunset: '18:45 PM' }
-      }
-    ]
-  }
-};

@@ -3,7 +3,6 @@ import { api } from '../../../common/core/api/api';
 import { mapApiError } from '../../../common/mappers/api-errors.mapper';
 import { mapCitySearch } from '../../../home/mappers/city.mapper';
 
-// Mocks
 jest.mock('../../../common/core/api/api');
 jest.mock('../../../common/mappers/api-errors.mapper');
 jest.mock('../../../home/mappers/city.mapper');
