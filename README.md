@@ -126,7 +126,7 @@ Foi utilizado TanStack Query (React Query) para gerenciamento de cache, sincroni
 
 Sobre os dados offline, fiquei em dúvida. Eu fiz das duas formas, os dados persistem por 10 minutos usando o react-query, para cada cidade. E também usei o async-storage para persistir dados apenas da última cidade no storage. Ele vai escrevendo por cima a cada consulta.
 
-O projeto foi organizado utilizando uma estrutura baseada em módulos/features dentro da pasta src, buscando separar responsabilidades e facilitar manutenção. Por falta de tempo, acho que essa separação poderia ter sido melhor: common para componentes e utilidades reutilizáveis entre módulos, home para regras de negócio relacionadas ao clima e details para a tela de detalhes.
+O projeto foi organizado utilizando uma estrutura baseada em módulos/features dentro da pasta src, buscando separar responsabilidades e facilitar manutenção. Separação: common para componentes e utilidades reutilizáveis entre módulos, home para regras de negócio relacionadas ao clima e details para a tela de detalhes. Talvez poderia ser melhor separado.
 
 Uma dificuldade encontrada foi a implementação do componente de autocomplete de cidades (CitySearch.tsx). Como a tela já possuía um ScrollView, ocorreram conflitos de scroll com o dropdown do autocomplete.
 
