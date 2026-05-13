@@ -112,7 +112,7 @@ bry-desafio/
 Outra forma que rodei: 
 1. Fazer prebuild com: npx expo prebuild
 2. Abri um emulador com o Radon IDE (Baixei extensão no vs code).
-3. Inicie o app: npx expo start, escolha um emulador tecla a (android) e b (ios).
+3. Inicie o app: npx expo start, escolha um emulador tecla a (android) e i (ios).
 
 ## Como rodar os testes
 
